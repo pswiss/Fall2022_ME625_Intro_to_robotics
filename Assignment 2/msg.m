@@ -6,6 +6,7 @@ classdef msg < handle
         number_to_send
         distance
         heading
+        favorite_color
     end
 
     methods

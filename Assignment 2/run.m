@@ -4,9 +4,9 @@
 % Run file for part # [put what section this run is for]
 
 % A few examples 
-% Flocking / Boids:     https://www.youtube.com/watch?v=QbUPfMXXQIY
-% Hop Localization:     https://www.youtube.com/watch?v=K2DWJeIYEho
-% Brazil Nut effect:    https://drive.google.com/file/d/1C9mxYO1rKvDVYFys4CV_mAD6rBNxE3DK/view?usp=sharing
+% Flocking / Boids:         https://www.youtube.com/watch?v=QbUPfMXXQIY
+% Hop Localization:         https://www.youtube.com/watch?v=K2DWJeIYEho
+% Brazil Nut effect:        https://drive.google.com/file/d/1C9mxYO1rKvDVYFys4CV_mAD6rBNxE3DK/view?usp=sharing
 % Distributed behaviors:    https://www.youtube.com/watch?v=GnyDAuqorGo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc; clear all; close all;
@@ -16,9 +16,7 @@ robot_radius = 1;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % First, Initialize the system
-% Robot initialization: robot( [position x, position y], angle, role)
-robot_array = [robot([0,0],0,1), robot([5,0], 0, 2), ...
-                robot([2.5,3],0,3), robot([-5,-5],0,4)];
+robot_array = placeRobots();
 
 light_location = [0,0];
 
@@ -54,7 +52,7 @@ while(~exit_condition)
 
    simstep = simstep + 1;
 
-   if(simstep > 500)
+   if(simstep > 550)
        exit_condition = true;
    end
 

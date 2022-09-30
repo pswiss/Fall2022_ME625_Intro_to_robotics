@@ -38,7 +38,7 @@ classdef robot < handle
         function runLogic(self)
             self.logic.loadComm(self.comm_in);
             [self.out_drive, self.out_spin] = ...
-                self.logic.runLogic(self.light_heading, self.orientation);
+                self.logic.runLogic(self.light_heading, wrapToPi(self.orientation-pi/2));
             self.comm_out = self.logic.comm_out;
         end
 

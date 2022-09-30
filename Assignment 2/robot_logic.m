@@ -13,8 +13,8 @@ classdef robot_logic < handle
         out_drive = 0;
 
         % Measured Values
-%         in_light_heading;
-%         in_compass;
+        in_light_heading;
+        in_compass;
         
         % Communication Values
         comm_in = [];
@@ -40,6 +40,8 @@ classdef robot_logic < handle
         % This is the bit to modify
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         function [out_drive, out_spin] = runLogic(self, in_light_heading, in_compass)
+            self.in_light_heading = in_light_heading;
+            self.in_compass = in_compass;
             % Here's an example of how to use multiple roles
             if(self.role == 1)
                 % Role 1: Example of how a robot can move forward with a
@@ -47,6 +49,8 @@ classdef robot_logic < handle
                 self.out_drive = 0.1;
                 self.out_spin = 1;
                 self.comm_out = msg(self.id);
+%                 self.comm_out.favorite_color = "green"
+                self.in_compass
             end
             if(self.role == 2)
                 % Role 2: Example of how a robot can change its color based
@@ -92,7 +96,15 @@ classdef robot_logic < handle
 
                 self.out_color = [0,0,1];
 
-                self.out_spin = 0.25*sign(in_light_heading);
+                self.out_spin = 0.25*sign(self.in_light_heading);
+            end
+            if(self.role == 5)
+                % Role 5: Turn to face North
+                self.out_drive = 0;
+                self.comm_out = msg(self.id);
+                self.out_color = [.8,.5,0];
+
+                self.out_spin = -0.5*sign(self.in_compass);
             end
 
             out_drive = self.out_drive;

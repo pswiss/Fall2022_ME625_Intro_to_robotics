@@ -27,4 +27,7 @@ text(p(1)+1, p(2), "\leftarrow Changes color based on proximity");
 p = robot_array(4).position;
 text(p(1)+1, p(2), "\leftarrow Turns to face the light source");
 
+p = robot_array(5).position;
+text(p(1)+1, p(2), "\leftarrow Turns to face North");
+
 drawnow
