@@ -27,5 +27,7 @@ function movement_handler(robot_array, dt, robot_radius)
             robot_array(rr).position = desired_next_position;
         end
 
+        robot_array(rr).updatePoseHistory;
+
     end
 end

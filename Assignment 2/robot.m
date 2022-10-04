@@ -6,6 +6,10 @@ classdef robot < handle
         % Physical Properties
         position = [0,0]; % x/y position
         orientation = [0]; % radians
+
+        % History stuff
+        position_history = [];
+        orientation_history = [];
         
         % Robot properties
         radius = 1;
@@ -59,6 +63,11 @@ classdef robot < handle
 
         function loadCommIn(self, new_comm_in)
             self.comm_in = [self.comm_in; new_comm_in];
+        end
+
+        function updatePoseHistory(self)
+            self.position_history = [self.position_history; self.position];
+            self.orientation_history = [self.orientation_history; self.orientation];
         end
     end
 end

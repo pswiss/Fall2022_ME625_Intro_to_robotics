@@ -24,8 +24,6 @@ script_drawWorld
 
 exit_condition = false;
 
-paths = [];
-
 simstep = 0;
 
 while(~exit_condition)
@@ -48,7 +46,7 @@ while(~exit_condition)
     script_drawWorld;
 
    
-   paths = drawPaths(paths, robot_array, 1,[0,0,1], true);
+   drawPaths(robot_array,[1,2,3]);
 
    simstep = simstep + 1;
 
@@ -58,4 +56,4 @@ while(~exit_condition)
 
 end
 
-paths = drawPaths(paths, robot_array, 1,[0,0,1], false);
+drawPaths(robot_array,[1,2,3]);
