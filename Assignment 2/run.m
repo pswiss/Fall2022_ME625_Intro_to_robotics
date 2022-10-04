@@ -46,7 +46,7 @@ while(~exit_condition)
     script_drawWorld;
 
    
-   drawPaths(robot_array,[1,2,3]);
+   drawPaths(robot_array,[1,2,3],[0,0,1]);
 
    simstep = simstep + 1;
 
