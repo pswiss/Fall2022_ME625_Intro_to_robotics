@@ -26,6 +26,7 @@ function movement_handler(robot_array, dt, robot_radius)
         if(sum(distances<(2*robot_radius))==0)
             robot_array(rr).position = desired_next_position;
         end
+        robot_positions(rr,:) = robot_array(rr).position;
 
         robot_array(rr).updatePoseHistory;
 
